@@ -18,29 +18,11 @@ const PokemonList = ({ name }) => {
     }, [name])
 
     const deletePokemon = (event) => {
-        console.log(event.target.closest(".pokemonItem").dataset.id);
-        // const deletePokemons = pokemons.filter((pokemon)=> {
-        //     return pokemon.id === event.target.closest(".pokeminItem").dataset.id
-        // })
-        // console.log(deletePokemons);
-        
-        // setPokemons((prevState)=> [...prevState.filter((pokemon)=> {
-        //     return pokemon.id === event.target.closest(".pokeminItem").dataset.id
-        // })])
+        // console.log(event.target.closest(".pokemonItem").dataset.id);
+        const elementId = Number.parseInt(event.target.closest(".pokemonItem").dataset.id)
 
-        // const listOfLi = document.querySelectorAll(".pokemonItem")
-        
-        // const index = listOfLi.indexOf(event.target.closest(".pokemonItem").nodeName)
-        // console.log(event.target.closest(".pokemonItem").nodeName);
-        
-        const elementId = event.target.closest(".pokemonItem").id
-        const index = pokemons.findIndex((pokemon) => (pokemon.id === elementId))
-
-        console.log(index);
-        
-        // pokemons.splice()
-
-        // console.log(pokemons);
+        const clearPokemons = pokemons.filter(pokemon =>  pokemon.id !== elementId)
+        setPokemons(clearPokemons)
         
     }
 
